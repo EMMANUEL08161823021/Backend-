@@ -1,0 +1,31 @@
+/* Understanding core node concepts.
+
+A server is a thing that receives request does some work to commute response and send it back.(e.g http).
+So, a thread is referred as a single worker that does work in a server.
+Types:
+Single-Threaded Server handles one request at a time.
+Multi-Threaded Server handles many requests at the same time.
+
+1. A request can be divided into cpu work and I/O work.
+
+A part of a request that requires immediate response(active attention) is called the CPU Work.
+A part of a request that does not require immediate response(non-active attention) is called the I/O Work(input or output).
+(e.g Waiting to make a request, reading a filesystem, waiting for time to pass)
+
+2. Server handles request using threads, which independently handle requests.
+
+3. Non-blocking I/O allows a thread to suspend a request while its performing I/O to work on another request.
+
+4. Non-blocking I/O allows node.js to efficiently handle I/O heavy workloads with only one thread.
+
+5. Blocking I/O: In blocking IO, a thread is stuck, or blocked waiting for I/O to finish.
+
+
+I/O Work >>>>> CPU Work (when you work is predominantly I/O)
+CPU Work >>>>> I/O Work (when you work is predominantly cpu)
+
+
+Youtube link: https://www.youtube.com/watch?v=wB9tIg209-8
+
+
+*/
